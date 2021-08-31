@@ -40,7 +40,7 @@ def db_drop_and_create_all():
 
 
 class Movie(db.Model):
-    __tablename__ = 'Movies'
+    __tablename__ = 'movies'
 
     id = Column(Integer, primary_key=True)
     title = Column(String , nullable=False)
@@ -69,7 +69,7 @@ class Movie(db.Model):
             'release date': self.release_date
         }
 class Actor(db.Model):
-    __tablename__ = 'Actors'
+    __tablename__ = 'actors'
 
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
