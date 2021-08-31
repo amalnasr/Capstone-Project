@@ -4,11 +4,11 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 import json
 
-# database_name = "capstoneproject"
-# database_path = "postgresql://{}@{}/{}".format('postgres:1996', 'localhost:5432', database_name)
-database_path = os.environ['DATABASE_URL']
-if database_path.startswith("postgres://"):
-    database_path = database_path.replace("postgres://", "postgresql://", 1)
+database_name = "capstoneproject"
+database_path = "postgresql://{}@{}/{}".format('postgres:1996', 'localhost:5432', database_name)
+# database_path = os.environ['DATABASE_URL']
+# if database_path.startswith("postgres://"):
+#     database_path = database_path.replace("postgres://", "postgresql://", 1)
 db = SQLAlchemy()
 
 
@@ -40,7 +40,7 @@ def db_drop_and_create_all():
 
 
 class Movie(db.Model):
-    __tablename__ = 'movies'
+    __tablename__ = 'movie'
 
     id = Column(Integer, primary_key=True)
     title = Column(String , nullable=False)
@@ -69,7 +69,7 @@ class Movie(db.Model):
             'release date': self.release_date
         }
 class Actor(db.Model):
-    __tablename__ = 'actors'
+    __tablename__ = 'actor'
 
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
