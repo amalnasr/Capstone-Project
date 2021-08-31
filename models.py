@@ -23,7 +23,7 @@ def setup_db(app, database_path=database_path):
 def db_drop_and_create_all():
     db.drop_all()
     db.create_all()
-    # add one demo row which is helping in POSTMAN test
+    # add one demo row for each table
     actor = Actor(
         name='actor name',
         age='25',
