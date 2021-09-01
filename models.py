@@ -17,8 +17,8 @@ def setup_db(app, database_path=database_path):
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
-    migrate = Migrate(app,db)
-    
+    migrate = Migrate(app, db)
+
 
 def db_drop_and_create_all():
     db.drop_all()
@@ -34,16 +34,16 @@ def db_drop_and_create_all():
     movie = Movie(
         title='movie title',
         release_date='2012-12-12'
-        
+
     )
-    movie.create() 
+    movie.create()
 
 
 class Movie(db.Model):
     __tablename__ = 'movie'
 
     id = Column(Integer, primary_key=True)
-    title = Column(String , nullable=False)
+    title = Column(String, nullable=False)
     release_date = Column(db.DateTime, nullable=False)
 
     def __init__(self, title, release_date):
@@ -68,6 +68,8 @@ class Movie(db.Model):
             'title': self.title,
             'release date': self.release_date
         }
+
+
 class Actor(db.Model):
     __tablename__ = 'actor'
 
@@ -76,7 +78,7 @@ class Actor(db.Model):
     age = Column(Integer)
     gender = Column(String, nullable=False)
 
-    def __init__(self, name, age,  gender):
+    def __init__(self, name, age, gender):
         self.name = name
         self.age = age
         self.gender = gender
